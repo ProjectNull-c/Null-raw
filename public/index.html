@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Null raw</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <video autoplay muted loop id="bg-video">
+    <source src="https://www.dropbox.com/scl/fi/yj9a15s6b5ifsi87iakp8/back.mp4?rlkey=odbwqcbyvqylgg0kpgvmk3sdl&st=del7irm2&dl=1" type="video/mp4">
+  </video>
+
+  <div class="overlay"></div>
+
+  <div class="toast" id="toastNotification">コピーしました</div>
+
+  <div class="container">
+    <div class="card">
+      <!-- Progress Dots -->
+      <div class="step-dots" id="stepDots">
+        <div class="dot active" id="dot1"></div>
+        <div class="dot" id="dot2"></div>
+      </div>
+
+      <div class="step-section active" id="page1">
+        <h1>1. スクリプト入力</h1>
+        <p>Roblox等で読み込むLuaコードやテキストを貼り付けてください</p>
+        
+        <div class="input-group">
+          <input type="text" class="glass-input" id="filenameInput" value="script.lua" placeholder="ファイル名 (例: script.lua)">
+        </div>
+
+        <div class="input-group">
+          <textarea class="glass-textarea" id="contentInput" placeholder="--ここにコードを貼り付け…"></textarea>
+        </div>
+
+        <div class="editor-stats">
+          <span id="lineCount">1 lines</span> &middot; <span id="charCount">0 chars</span>
+        </div>
+
+        <button class="btn btn-primary" id="toPage2">RAW URLを発行する</button>
+      </div>
+
+      <div class="step-section" id="page2">
+        <h1>2. 発行完了</h1>
+        <p>以下のURLやloadstringをコピーしてご利用ください</p>
+
+        <div class="input-label">RAW URL</div>
+        <div class="input-group">
+          <div class="url-display-box">
+            <input type="text" class="glass-input" id="resultUrl" readonly>
+            <button class="btn btn-folder" id="copyUrlBtn">URLコピー</button>
+          </div>
+        </div>
+
+        <div class="input-label" style="margin-top: 14px;">Roblox Loadstring</div>
+        <div class="input-group">
+          <div class="url-display-box">
+            <input type="text" class="glass-input" id="resultLoadstring" readonly>
+            <button class="btn btn-folder" id="copyLoadstringBtn">LSコピー</button>
+          </div>
+        </div>
+
+        <div class="action-row">
+          <a href="#" id="rawLink" target="_blank" class="sub-link">RAWを確認 ↗</a>
+          <a href="#" id="viewLink" target="_blank" class="sub-link">ビュー画面 ↗</a>
+        </div>
+
+        <button class="btn btn-folder" id="backToPage1" style="margin-top: 20px; width: 100%;">新しいコードを書く</button>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
